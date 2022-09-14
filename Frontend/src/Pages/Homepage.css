@@ -1,0 +1,54 @@
+.carousel_size{
+    width: 100vw;
+    height:50vh;
+}
+
+@media (min-width: 768px){
+    .carousel_size{
+        width: 80vw;
+        height:100vh;
+    }
+    
+    .level1-area{
+        height: 90vh;
+        position: relative;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        /* background-color: rgb(247, 247, 249); */
+    }
+
+    .text{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 35px;
+        padding-top: 10vh;
+        padding-bottom: 5vh;
+    }
+
+    .logo{
+        position: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .bag{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        list-style: none;
+    }
+
+    .bag li{
+        margin-left: 5vw; 
+    }
+
+    /* .bags div{
+        display: inline-block;
+    } */
+
+    .bag_size{
+        height: 40vh;
+        width: 20vw;
+    }
+}

@@ -1,0 +1,120 @@
+.main-navigation__menu-btn {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.main-navigation__menu-btn span {
+  display: block;
+  width: 3rem;
+  height: 2.5px;
+  background: rgb(0, 0, 0);
+}
+
+.main-navigation__title {
+  color: white;
+}
+
+.main-navigation__title a {
+  text-decoration: none;
+  color: white;
+}
+.main-navigation__logo {
+  max-width: 270px;
+  max-height: 70px;
+  width: auto;
+  height: auto;
+  position: absolute;
+  right: calc(50% - 135px);
+  top: 0.5%;
+}
+
+.main-navigation__header-nav {
+  display: none;
+}
+
+.main-navigation__right-header-nav{
+  display: none;
+}
+
+.main-navigation__drawer-nav {
+  height: 100vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login_button {
+  margin-top: 2vh;
+  border: none;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.login_button__header {
+  display: none;
+}
+
+.input_field{
+  width: 70%;
+  height: 30px;
+  border-top: none; 
+  border-left: none ;
+  border-right: none;
+}
+
+.input div{
+  padding: 5px;
+}
+
+.modal_display{
+  display: inline block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .main-navigation__menu-btn {
+    display: none;
+  }
+
+  .main-navigation__header-nav {
+    display: block;
+    position: absolute;
+    left: 2vw;
+  }
+
+  .main-navigation__right-header-nav{
+    display: block;
+    position: absolute;
+    right: 5vw;
+  }
+
+  .main-navigation__logo {
+    /* max-width: 270px;
+    max-height: 70px; */
+    width: 30vw;
+    height: auto;
+    position: absolute;
+    left: calc(50% - 15vw);
+    top: 0.5%;
+  }
+  .login_button__header {
+  display: block;
+  border: none;
+  background-color: white;
+  position:relative;
+  right: 25vw;
+  cursor: pointer; 
+  }
+
+  .login_button__header button:hover{
+    color: rgb(210, 174, 109);
+  }
+}
