@@ -10,8 +10,9 @@ motor = ">=2.4.0"
 pyjwt = ">=1.7.1"
 python-decouple = ">=3.3"
 django-email = "==0.1.10"
+pydantic = {extras = ["email"], version = "*"}
 
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.10"

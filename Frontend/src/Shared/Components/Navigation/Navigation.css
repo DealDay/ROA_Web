@@ -54,7 +54,11 @@
   margin-top: 2vh;
   border: none;
   background-color: white;
-  font-size: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .login_button__header {
@@ -67,6 +71,11 @@
   border-top: none; 
   border-left: none ;
   border-right: none;
+}
+
+.label{
+  /* border: none; */
+  font-size: 0.8rem;
 }
 
 .input div{
@@ -112,6 +121,7 @@
   position:relative;
   right: 25vw;
   cursor: pointer; 
+  font-size: 1vw;
   }
 
   .login_button__header button:hover{

@@ -9,7 +9,7 @@ from auth.auth_bearer import JWTBearer
 #App object
 app = FastAPI()
 
-from database import (
+from bag_database import (
     fetch_one_bag,
     fetch_all_bags,
     delete_one_bag,
@@ -24,7 +24,7 @@ from user_database import(
 )
 
 
-origins = ['https://localhost:3000']
+origins = ['http://localhost:3000']
 
 
 app.add_middleware(
@@ -49,7 +49,7 @@ async def get_bags():
     return response
 
 
-@app.get("/bags{_id}", response_model=Bag)
+@app.get("/bag{_id}", response_model=Bag)
 async def get_bags_by_id(_id):
     response = await fetch_one_bag(_id)
     if response:
@@ -57,15 +57,15 @@ async def get_bags_by_id(_id):
     raise HTTPException(404, "Bag not found")
 
 
-@app.post("/bags", dependencies=[Depends(JWTBearer())], response_model=Bag)
-async def post_bags(bag:Bag):
+@app.post("/bag", dependencies=[Depends(JWTBearer())], response_model=Bag)
+async def post_bag(bag:Bag):
     response = await insert_one_bag(bag.dict())
     if response:
         return response
     raise HTTPException(404, "something went wrong")
 
 
-@app.put("/bags{bag_name}", dependencies=[Depends(JWTBearer())], response_model=Bag)
+@app.put("/bag{bag_name}", dependencies=[Depends(JWTBearer())], response_model=Bag)
 async def update_bag_by_id(bag_name: str, bag_img_loc: str, bag_price: float, quantity: int):
     response = await update_bag(bag_name, bag_img_loc, bag_price, quantity)
     if response:
@@ -73,21 +73,21 @@ async def update_bag_by_id(bag_name: str, bag_img_loc: str, bag_price: float, qu
     raise HTTPException(404, f'Bag with name:{bag_name} does not exist')
     
 
-@app.delete("/bags{bag_name}", dependencies=[Depends(JWTBearer())])
+@app.delete("/bags/{bag_name}", dependencies=[Depends(JWTBearer())])
 async def delete_bag_by_id(bag_name):
     response = await delete_one_bag(bag_name)
     if response:
         return "Bag deleted from database"
     raise HTTPException(404, f'Bag with name:{bag_name} does not exist')
 
-@app.get("/user{user_id}", response_model=UserSchema)
+@app.get("/user/{user_email}", response_model=UserSchema)
 async def get_one_user(user_email):
     response  = await get_user(user_email)
     if response:
         return response
-    raise HTTPException(404, f"{user_email}does not exist")
+    raise HTTPException(404, f"{user_email} does not exist")
 
-@app.get("/users")
+@app.get("/all_users")
 async def get_all_database_users():
     response = await get_all_users()
     return response
@@ -96,7 +96,8 @@ async def get_all_database_users():
 async def create_new_user(user:UserSchema=Body(...)):
     user_check = await check_user(user)
     if user_check:
-        raise HTTPException(406, f"user with {user.email} already exist")
+        # raise HTTPException(406, f"user with {user.email} already exist")
+        return{'error': f'User with {user.email} already exist'}
     else:
         response = await create_user(user)
         if response:
@@ -112,7 +113,7 @@ async def user_login(user: UserLoginSchema = Body(...)):
         "error": "Wrong login details!"
     }
 
-@app.delete("/users{user_email}")
+@app.delete("/user{user_email}")
 async def delete_user(user_email):
     response = await delete_user(user_email)
     if response:

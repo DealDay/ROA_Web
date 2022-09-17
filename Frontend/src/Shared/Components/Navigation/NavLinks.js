@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-// import { AuthContext } from "../../Context/auth-context";
 import "./NavLinks.css";
 
 const NavLinks = (props) => {
@@ -10,9 +9,9 @@ const NavLinks = (props) => {
       <li>
         <NavLink to="/shop">SHOP</NavLink>
       </li>
-      {/* <li>
-        <NavLink to="/aboutUs">ABOUT US</NavLink>
-      </li> */}
+      <li>
+        {/* <NavLink to="/collections">COLLECTIONS</NavLink> */}
+      </li>
       <li>
         <NavLink to="/lookBook">LOOKBOOK</NavLink>
       </li>
@@ -22,14 +21,6 @@ const NavLinks = (props) => {
       <li>
         <NavLink to="/sayHello">SAY HELLO</NavLink>
       </li>
-      {/* {!auth.isLoggedIn && ( */}
-
-      {/* // )} */}
-      {/* {auth.isLoggedIn && (
-        <li>
-          <button onClick={}>LOGOUT</button>
-        </li>
-      )} */}
     </ul>
   );
 };

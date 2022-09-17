@@ -5,12 +5,12 @@ import motor.motor_asyncio
 
 client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://localhost:27017')
 
-database = client.UserList
+database = client.roa
 
 collection = database.users
 
-async def get_user(user_id):
-    document = await collection.find_one({"user_id":user_id})
+async def get_user(user_email):
+    document = await collection.find_one({"email":user_email})
     return document
 
 async def get_all_users():
@@ -18,7 +18,7 @@ async def get_all_users():
     cursor = collection.find({})
     async for document in cursor:
         users.append(UserSchema(**document))
-    # print(users)
+    # print('in')
     return users
 
 async def create_user(user):
