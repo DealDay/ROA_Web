@@ -5,9 +5,9 @@ import motor.motor_asyncio
 
 client = motor.motor_asyncio.AsyncIOMotorClient('mongodb://localhost:27017')
 
-database = client.BagList
+database = client.roa
 
-collection = database.bag
+collection = database.bags
 
 async def fetch_one_bag(_id):
     document = await collection.find_one({"bag_name":_id})

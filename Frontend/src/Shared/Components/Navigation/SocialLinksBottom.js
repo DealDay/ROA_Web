@@ -60,8 +60,7 @@ const SocialLinksBottom = (props) => {
       <li className="padding">Tel: +234 906 000 5186</li>
       <li className="padding">E-mail: info@roahandcrafted.com</li>
       <li className="padding">
-        <BiCopyright />
-        2022 ROA Handcrafted
+        &copy;2022 ROA Handcrafted
       </li>
     </ul>
   );
